@@ -25,6 +25,7 @@ url = f"https://github.com/{USER}.png?size=460"
 ctx = ssl.create_default_context()
 req = urllib.request.Request(url, headers={"User-Agent": "avatar-bot"})
 raw = urllib.request.urlopen(req, timeout=30, context=ctx).read()
+mime = "image/jpeg" if raw[:2] == b"\xff\xd8" else ("image/gif" if raw[:3] == b"GIF" else "image/png")
 img_b64 = base64.b64encode(raw).decode()
 
 # 2) subset fuente cuneiforme
@@ -86,7 +87,7 @@ svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {S} {S}" width="1
 </defs>
 
 <g clip-path="url(#cir)">
-  <image href="data:image/png;base64,{img_b64}" x="{CX-R}" y="{CY-R}" width="{2*R}" height="{2*R}" preserveAspectRatio="xMidYMid slice"/>
+  <image href="data:{mime};base64,{img_b64}" x="{CX-R}" y="{CY-R}" width="{2*R}" height="{2*R}" preserveAspectRatio="xMidYMid slice"/>
   <rect x="{CX-R}" y="{CY-R}" width="{2*R}" height="{2*R}" fill="url(#red)"/>
   <rect x="{CX-R}" y="{CY-R}" width="{2*R}" height="{2*R}" fill="url(#scanlines)" style="animation:flick 2.4s steps(2) infinite"/>
   <g>{rain}</g>
