@@ -2,6 +2,8 @@
 
 <img src="https://raw.githubusercontent.com/fevar54/fevar54/main/banner.svg" width="100%" alt="fevar54 - Matrix banner" />
 
+<img src="https://raw.githubusercontent.com/fevar54/fevar54/main/avatar.svg" width="170" alt="avatar" />
+
 ### 🛡️ Ciberseguridad · CTI · PoCs de CVE · Reglas de detección
 
 Repositorios organizados por proyecto. **Haz clic en cualquier tarjeta** para ver ese grupo filtrado en GitHub.
